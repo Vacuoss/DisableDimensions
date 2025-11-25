@@ -1,5 +1,6 @@
 Plugin to disable vanilla, modded, or datapack dimensions with simple commands.
 Block portals, teleportation, and customize all messages from the config
+https://modrinth.com/plugin/disabledimensions
 Features:
 
 Disable the Nether
