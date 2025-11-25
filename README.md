@@ -1,6 +1,7 @@
 Plugin to disable vanilla, modded, or datapack dimensions with simple commands.
 Block portals, teleportation, and customize all messages from the config
 Features:
+
 Disable the Nether
 
 Disable The End
