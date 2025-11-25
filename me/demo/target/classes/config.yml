@@ -1,0 +1,13 @@
+disable-nether: true
+disable-end: true
+
+messages:
+  nether: "§cNether is disabled on this server."
+  end: "§cThe End is disabled on this server."
+  generic: "§cThis dimension is disabled."
+
+# List of additional dimensions to disable
+disabled-dimensions:
+  - "twilightforest:twilight_forest"
+  - "my_mod:moon"
+  - "my_mod:deep_dark_v2"

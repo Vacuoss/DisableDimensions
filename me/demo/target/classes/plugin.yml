@@ -1,0 +1,16 @@
+name: DisableDimensions
+main: me.avacuoss.DisableDimensions
+version: 1.0
+api-version: 1.19
+author: avacuoss
+description: Universal dimension blocker for Bukkit, Paper and Mohist.
+
+commands:
+  dimensions:
+    description: Manage dimension toggles
+    usage: /dimensions <list|toggle|reload>
+    permission: dimensions.admin
+
+permissions:
+  dimensions.admin:
+    default: op
