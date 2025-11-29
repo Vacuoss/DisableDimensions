@@ -28,7 +28,7 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
 
         Bukkit.getPluginManager().registerEvents(this, this);
 
-        // Регистрируем команду и таб
+        
         getCommand("dimensions").setExecutor(this);
         getCommand("dimensions").setTabCompleter(this);
 
