@@ -46,14 +46,13 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
     }
 
 
-    // events
 
     @EventHandler
     public void onPortal(PlayerPortalEvent e) {
         Player p = e.getPlayer();
         Environment env = e.getFrom().getWorld().getEnvironment();
 
-        // Nether
+        
         if (config.getBoolean("disable-nether") &&
                 e.getCause() == PlayerTeleportEvent.TeleportCause.NETHER_PORTAL) {
             e.setCancelled(true);
@@ -61,7 +60,7 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
             return;
         }
 
-        // End
+
         if (config.getBoolean("disable-end") &&
                 e.getCause() == PlayerTeleportEvent.TeleportCause.END_PORTAL) {
             e.setCancelled(true);
@@ -81,14 +80,14 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
         String key = to.getKey().toString();
         List<String> disabled = config.getStringList("disabled-dimensions");
 
-        // Модовые измерения
+        
         if (disabled.contains(key)) {
             e.setCancelled(true);
             p.sendMessage(config.getString("messages.generic"));
             return;
         }
 
-        // Ванильные
+        
         if (to.getEnvironment() == Environment.NETHER &&
                 config.getBoolean("disable-nether")) {
 
@@ -106,7 +105,6 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
     }
 
 
-    // commands
 
     @Override
     public boolean onCommand(CommandSender s, Command cmd, String label, String[] args) {
@@ -123,14 +121,12 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
             return true;
         }
 
-        // /dimensions reload
         if (args[0].equalsIgnoreCase("reload")) {
             reloadLocalConfig();
             s.sendMessage("§aConfig reloaded.");
             return true;
         }
-
-        // /dimensions list
+        
         if (args[0].equalsIgnoreCase("list")) {
             s.sendMessage("§6--- Loaded Dimensions ---");
 
@@ -143,7 +139,6 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
             return true;
         }
 
-        // /dimensions toggle <id>
         if (args[0].equalsIgnoreCase("toggle")) {
             if (args.length < 2) {
                 s.sendMessage("§cUsage: /dimensions toggle <dimension_id>");
@@ -170,14 +165,12 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
     }
 
 
-    // TAB
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String alias, String[] args) {
 
         if (!sender.hasPermission("dimensions.admin")) return List.of();
 
-        // /dimensions <TAB>
         if (args.length == 1) {
             return List.of("list", "toggle", "reload")
                     .stream()
@@ -185,7 +178,7 @@ public class DisableDimensions extends JavaPlugin implements Listener, TabExecut
                     .collect(Collectors.toList());
         }
 
-        // /dimensions toggle <TAB>
+
         if (args.length == 2 && args[0].equalsIgnoreCase("toggle")) {
 
             return Bukkit.getWorlds().stream()
